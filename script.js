@@ -1,18 +1,27 @@
-// Config: FCC proxy (works for the FCC project)
+console.log("script.js loaded");
+
 const BASE = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
 
-// Elements
 const form = document.getElementById("search-form");
 const input = document.getElementById("search-input");
 const statusEl = document.getElementById("status");
 const resultEl = document.getElementById("result");
 const typesEl = document.getElementById("types");
 const imgEl = document.getElementById("sprite");
+const themeBtn = document.getElementById("theme-toggle");
 
-// Helpers
-const setStatus = (msg, cls = "") => {
-  statusEl.className = cls;
-  statusEl.textContent = msg || "";
+// Status helpers
+const showSpinner = () => {
+  statusEl.className = "loading";
+  statusEl.innerHTML = '<div class="spinner" aria-label="Loading"></div>';
+};
+const clearStatus = () => {
+  statusEl.className = "";
+  statusEl.textContent = "";
+};
+const showError = (msg) => {
+  statusEl.className = "error";
+  statusEl.textContent = msg;
 };
 
 const setText = (id, value = "") => {
@@ -20,17 +29,13 @@ const setText = (id, value = "") => {
   if (el) el.textContent = value;
 };
 
-// Prefer official artwork; fall back to default sprite
 const spriteFrom = (data) =>
   data.sprites?.other?.["official-artwork"]?.front_default ||
   data.sprites?.front_default ||
   "";
 
-// Simple in-memory cache
 const cache = new Map();
-
-const normalizeQuery = (q) =>
-  q.trim().toLowerCase().replace(/[^a-z0-9-]/g, "");
+const normalizeQuery = (q) => q.trim().toLowerCase().replace(/[^a-z0-9-]/g, "");
 
 const fetchPokemon = async (q) => {
   const key = normalizeQuery(q);
@@ -49,17 +54,14 @@ const fetchPokemon = async (q) => {
 };
 
 const render = (data) => {
-  // Clear
   typesEl.innerHTML = "";
   imgEl.src = "";
 
-  // Basic fields
   setText("pokemon-name", (data.name || "").toUpperCase());
   setText("pokemon-id", `#${data.id ?? ""}`);
   setText("weight", `${data.weight ?? ""}`);
   setText("height", `${data.height ?? ""}`);
 
-  // Stats
   const getStat = (name) =>
     data.stats?.find((s) => s.stat?.name === name)?.base_stat ?? "";
 
@@ -70,7 +72,6 @@ const render = (data) => {
   setText("special-defense", `${getStat("special-defense")}`);
   setText("speed", `${getStat("speed")}`);
 
-  // Types as badges
   (data.types || []).forEach((t) => {
     const div = document.createElement("div");
     div.className = "type-badge";
@@ -78,7 +79,6 @@ const render = (data) => {
     typesEl.appendChild(div);
   });
 
-  // Sprite
   const src = spriteFrom(data);
   if (src) {
     imgEl.src = src;
@@ -88,33 +88,45 @@ const render = (data) => {
   resultEl.hidden = false;
 };
 
-// Submit/search flow
+// Search
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const q = input.value;
-
   try {
     resultEl.hidden = true;
-    setStatus("Loading…", "loading");
+    showSpinner();
     const data = await fetchPokemon(q);
     render(data);
-    setStatus("");
+    clearStatus();
   } catch (err) {
-    setStatus(err.message || "Something went wrong", "error");
+    showError(err.message || "Something went wrong");
     resultEl.hidden = true;
   }
 });
 
-// Keep “click” on button working too (form handles submit)
-document.getElementById("search-button").addEventListener("click", (e) => {
-  // No-op: form submit handles it
-});
-
-// Quick UX: press "/" to focus search
+// Keyboard shortcuts
 window.addEventListener("keydown", (e) => {
   if (e.key === "/" && document.activeElement !== input) {
     e.preventDefault();
     input.focus();
     input.select();
+  } else if (e.key === "Escape") {
+    input.value = "";
+    clearStatus();
+    resultEl.hidden = true;
   }
+});
+
+// Dark/light theme toggle
+const applyTheme = (mode) => {
+  document.documentElement.classList.toggle("dark", mode === "dark");
+  themeBtn.setAttribute("aria-pressed", String(mode === "dark"));
+  localStorage.setItem("theme", mode);
+};
+const saved = localStorage.getItem("theme");
+applyTheme(saved || "light");
+
+themeBtn.addEventListener("click", () => {
+  const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
+  applyTheme(next);
 });

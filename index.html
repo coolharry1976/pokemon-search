@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pokémon Search App</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <div class="container">
-    <h1>Pokémon Search</h1>
+    <header class="header">
+      <h1>Pokémon Search</h1>
+      <!-- Dark/Light toggle -->
+      <button id="theme-toggle" class="ghost-btn" aria-pressed="false" title="Toggle dark mode">🌗</button>
+    </header>
 
     <form id="search-form" role="search" aria-label="Pokémon search">
       <label for="search-input" class="sr-only">Search Pokémon by name or ID</label>
@@ -16,7 +21,8 @@
       <button id="search-button" type="submit">Search</button>
     </form>
 
-    <p id="hint">Tip: press “/” to focus search • name or number both work</p>
+    <p id="hint">Tip: press “/” to focus search • press “Esc” to clear</p>
+
     <div id="status" aria-live="polite"></div>
 
     <div class="pokemon-info" id="result" hidden>
@@ -36,6 +42,7 @@
     </div>
   </div>
 
-  <script src="script.js" defer></script>
+  <!-- bump version so Pages fetches the new JS -->
+  <script src="script.js?v=4" defer></script>
 </body>
 </html>
