@@ -1,4 +1,4 @@
-console.log("script.js build v5 loaded");
+console.log("script.js build v8 loaded");
 
 const BASE = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
 
@@ -60,10 +60,12 @@ const render = (data) => {
   setText("special-defense", `${getStat("special-defense")}`);
   setText("speed", `${getStat("speed")}`);
 
+  // Types as badges (colored)
   (data.types || []).forEach((t) => {
+    const name = (t.type?.name || "").toLowerCase(); // e.g., "fire"
     const div = document.createElement("div");
-    div.className = "type-badge";
-    div.textContent = (t.type?.name || "").toUpperCase();
+    div.className = `type-badge type-${name}`;
+    div.textContent = name.toUpperCase();
     typesEl.appendChild(div);
   });
 
@@ -100,7 +102,7 @@ window.addEventListener("keydown", (e) => {
 
 // Theme toggle
 const applyTheme = (mode) => {
-  document.documentElement.classList.toggle("dark", mode === "dark");
+  document.body.classList.toggle("dark", mode === "dark");
   themeBtn.setAttribute("aria-pressed", String(mode === "dark"));
   localStorage.setItem("theme", mode);
 };
@@ -108,7 +110,6 @@ const saved = localStorage.getItem("theme");
 applyTheme(saved || "light");
 
 themeBtn.addEventListener("click", () => {
-  const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
+  const next = document.body.classList.contains("dark") ? "light" : "dark";
   applyTheme(next);
 });
-
