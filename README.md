@@ -1,19 +1,19 @@
 # Pokémon Search App
 
-A simple, responsive web app to search and view details of any Pokémon using the **FreeCodeCamp PokéAPI Proxy**.
+A simple, responsive web app to search and view details of any Pokémon using the FreeCodeCamp PokéAPI Proxy.
 
 🌐 **Live Demo:** [coolharry1976.github.io/pokemon-search](https://coolharry1976.github.io/pokemon-search/)
 
 ---
 
 ## ✨ Features
-- 🔍 Search Pokémon by **name** or **Pokédex ID**
-- 🎨 Large official artwork
-- 📊 Stats: **HP, Attack, Defense, Sp. Atk, Sp. Def, Speed**
-- 🏷️ Type **badges** with color coding (Fire 🔴, Water 🔵, etc.)
-- 🌓 **Dark/Light mode** toggle (remembers preference)
-- ⌨️ Shortcuts: `/` to focus, **Esc** to clear
-- 📱 Fully **responsive** (mobile-friendly)
+- 🔍 Search Pokémon by name or Pokédex ID  
+- 🎨 Large official artwork  
+- 📊 Stats: HP, Attack, Defense, Sp. Atk, Sp. Def, Speed  
+- 🏷️ Type badges with color coding (Fire 🔴, Water 🔵, etc.)  
+- 🌓 Dark/Light mode toggle (remembers preference)  
+- ⌨️ Shortcuts: `/` to focus, `Esc` to clear  
+- 📱 Fully responsive (mobile-friendly)  
 
 ---
 
@@ -28,6 +28,7 @@ A simple, responsive web app to search and view details of any Pokémon using th
 ## 🚀 Getting Started
 
 Clone the repo:
+
 ```bash
 git clone https://github.com/coolharry1976/pokemon-search.git
 cd pokemon-search
@@ -39,7 +40,7 @@ Edit
 python -m http.server 5173
 # then open http://localhost:5173/
 📂 Project Structure
-text
+plaintext
 Copy
 Edit
 pokemon-search/
@@ -48,17 +49,5 @@ pokemon-search/
 ├── script.js
 ├── README.md
 └── assets/
-    ├── light-mode.png
-    └── dark-mode.png
-## 📸 Screenshots
-
-**Light Mode**  
-![Light Mode](https://raw.githubusercontent.com/coolharry1976/pokemon-search/main/assets/light-mode.png)
-
-**Dark Mode**  
-![Dark Mode](https://raw.githubusercontent.com/coolharry1976/pokemon-search/main/assets/dark-mode.png)
-
-  
-
 📜 License
 This project is licensed under the MIT License — feel free to use and modify.
