@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pokémon Search App</title>
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <h1>Pokémon Search <span class="badge">build v5</span></h1>
+      <h1>Pokémon Search <span class="badge">build v7</span></h1>
       <button id="theme-toggle" class="ghost-btn" aria-pressed="false" title="Toggle dark mode">🌗</button>
     </header>
 
@@ -24,24 +24,28 @@
 
     <div id="status" aria-live="polite"></div>
 
+    <!-- Result layout -->
     <div class="pokemon-info" id="result" hidden>
-      <p><strong>Name:</strong> <span id="pokemon-name"></span></p>
-      <p><strong>ID:</strong> <span id="pokemon-id"></span></p>
-      <p><strong>Weight:</strong> <span id="weight"></span></p>
-      <p><strong>Height:</strong> <span id="height"></span></p>
-      <p><strong>HP:</strong> <span id="hp"></span></p>
-      <p><strong>Attack:</strong> <span id="attack"></span></p>
-      <p><strong>Defense:</strong> <span id="defense"></span></p>
-      <p><strong>Special Attack:</strong> <span id="special-attack"></span></p>
-      <p><strong>Special Defense:</strong> <span id="special-defense"></span></p>
-      <p><strong>Speed:</strong> <span id="speed"></span></p>
+      <div class="info-left">
+        <p><strong>Name:</strong> <span id="pokemon-name"></span></p>
+        <p><strong>ID:</strong> <span id="pokemon-id"></span></p>
+        <p><strong>Weight:</strong> <span id="weight"></span></p>
+        <p><strong>Height:</strong> <span id="height"></span></p>
+        <p><strong>HP:</strong> <span id="hp"></span></p>
+        <p><strong>Attack:</strong> <span id="attack"></span></p>
+        <p><strong>Defense:</strong> <span id="defense"></span></p>
+        <p><strong>Special Attack:</strong> <span id="special-attack"></span></p>
+        <p><strong>Special Defense:</strong> <span id="special-defense"></span></p>
+        <p><strong>Speed:</strong> <span id="speed"></span></p>
+        <div id="types" class="types"></div>
+      </div>
 
-      <div id="types" class="types"></div>
-      <img id="sprite" alt="Pokémon sprite" />
+      <div class="info-right">
+        <img id="sprite" alt="Pokémon sprite" />
+      </div>
     </div>
   </div>
 
-  <!-- cache-bust -->
-  <script src="script.js?v=5" defer></script>
+  <script src="script.js?v=7" defer></script>
 </body>
 </html>
