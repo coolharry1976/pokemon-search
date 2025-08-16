@@ -15,11 +15,15 @@ A simple, responsive web app to search and view details of any Pokémon using th
 - ⌨️ Shortcuts: `/` to focus, **Esc** to clear
 - 📱 Fully **responsive** (mobile-friendly)
 
+---
+
 ## 🛠️ Built With
-- HTML5
-- CSS3 (Flexbox, Responsive Design)
-- Vanilla JavaScript (ES6+)
-- PokeAPI Proxy → https://pokeapi-proxy.freecodecamp.rocks
+- HTML5  
+- CSS3 (Flexbox, Responsive Design)  
+- Vanilla JavaScript (ES6+)  
+- PokeAPI Proxy → https://pokeapi-proxy.freecodecamp.rocks  
+
+---
 
 ## 🚀 Getting Started
 
@@ -35,7 +39,7 @@ Edit
 python -m http.server 5173
 # then open http://localhost:5173/
 📂 Project Structure
-pgsql
+text
 Copy
 Edit
 pokemon-search/
