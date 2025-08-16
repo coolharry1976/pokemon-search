@@ -50,12 +50,14 @@ pokemon-search/
 └── assets/
     ├── light-mode.png
     └── dark-mode.png
-📸 Screenshots
+## 📸 Screenshots
+
 **Light Mode**  
-<img src="assets/light-mode.png" width="800" alt="Light mode screenshot" />  
+![Light Mode](https://raw.githubusercontent.com/coolharry1976/pokemon-search/main/assets/light-mode.png)
 
 **Dark Mode**  
-<img src="assets/dark-mode.png"  width="800" alt="Dark mode screenshot" />
+![Dark Mode](https://raw.githubusercontent.com/coolharry1976/pokemon-search/main/assets/dark-mode.png)
+
   
 
 📜 License
