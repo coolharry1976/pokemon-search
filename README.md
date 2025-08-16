@@ -1,69 +1,55 @@
-Pokémon Search App
+# Pokémon Search App
 
-A simple, responsive web app to search and view details of any Pokémon using the FreeCodeCamp PokeAPI Proxy.
+A simple, responsive web app to search and view details of any Pokémon using the **FreeCodeCamp PokéAPI Proxy**.
 
-🌐 Live Demo: coolharry1976.github.io/pokemon-search
+🌐 **Live Demo:** [coolharry1976.github.io/pokemon-search](https://coolharry1976.github.io/pokemon-search/)
 
-✨ Features
+---
 
-🔍 Search Pokémon by name or Pokédex ID
+## ✨ Features
+- 🔍 Search Pokémon by **name** or **Pokédex ID**
+- 🎨 Large official artwork
+- 📊 Stats: **HP, Attack, Defense, Sp. Atk, Sp. Def, Speed**
+- 🏷️ Type **badges** with color coding (Fire 🔴, Water 🔵, etc.)
+- 🌓 **Dark/Light mode** toggle (remembers preference)
+- ⌨️ Shortcuts: `/` to focus, **Esc** to clear
+- 📱 Fully **responsive** (mobile-friendly)
 
-🎨 Official Pokémon artwork displayed in large size
+## 🛠️ Built With
+- HTML5
+- CSS3 (Flexbox, Responsive Design)
+- Vanilla JavaScript (ES6+)
+- PokeAPI Proxy → https://pokeapi-proxy.freecodecamp.rocks
 
-📊 Full stats: HP, Attack, Defense, Sp. Atk, Sp. Def, Speed
-
-🏷️ Type badges with color coding (Fire 🔴, Water 🔵, etc.)
-
-🌓 Dark/Light mode toggle (remembers preference)
-
-⌨️ Keyboard shortcuts:
-
-/ → jump to search
-
-Esc → clear results
-
-📱 Fully responsive (mobile-friendly layout)
-
-🛠️ Built With
-
-HTML5
-
-CSS3 (Flexbox, Responsive Design)
-
-Vanilla JavaScript (ES6+)
-
-PokeAPI Proxy → https://pokeapi-proxy.freecodecamp.rocks
-
-🚀 Getting Started
+## 🚀 Getting Started
 
 Clone the repo:
-
+```bash
 git clone https://github.com/coolharry1976/pokemon-search.git
 cd pokemon-search
+Run locally (Python 3):
 
-
-Open in VS Code or your favorite editor.
-
-To view locally (using Python server):
-
-# For Python 3
+bash
+Copy
+Edit
 python -m http.server 5173
-
-
-Then open → http://localhost:5173
-
+# then open http://localhost:5173/
 📂 Project Structure
+pgsql
+Copy
+Edit
 pokemon-search/
-│── index.html
-│── styles.css
-│── script.js
-│── README.md
-
+├── index.html
+├── styles.css
+├── script.js
+├── README.md
+└── assets/
+    ├── light-mode.png
+    └── dark-mode.png
 📸 Screenshots
 Light Mode
 
 Dark Mode
 
 📜 License
-
 This project is licensed under the MIT License — feel free to use and modify.
