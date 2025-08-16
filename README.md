@@ -51,9 +51,11 @@ pokemon-search/
     ├── light-mode.png
     └── dark-mode.png
 📸 Screenshots
-Light Mode
+**Light Mode**  
+![Light Mode](assets/light-mode.png)  
 
-Dark Mode
+**Dark Mode**  
+![Dark Mode](assets/dark-mode.png)  
 
 📜 License
 This project is licensed under the MIT License — feel free to use and modify.
