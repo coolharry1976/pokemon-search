@@ -1,4 +1,4 @@
-console.log("script.js loaded");
+console.log("script.js build v5 loaded");
 
 const BASE = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
 
@@ -10,29 +10,18 @@ const typesEl = document.getElementById("types");
 const imgEl = document.getElementById("sprite");
 const themeBtn = document.getElementById("theme-toggle");
 
-// Status helpers
 const showSpinner = () => {
   statusEl.className = "loading";
   statusEl.innerHTML = '<div class="spinner" aria-label="Loading"></div>';
 };
-const clearStatus = () => {
-  statusEl.className = "";
-  statusEl.textContent = "";
-};
-const showError = (msg) => {
-  statusEl.className = "error";
-  statusEl.textContent = msg;
-};
+const clearStatus = () => { statusEl.className = ""; statusEl.textContent = ""; };
+const showError = (msg) => { statusEl.className = "error"; statusEl.textContent = msg; };
 
-const setText = (id, value = "") => {
-  const el = document.getElementById(id);
-  if (el) el.textContent = value;
-};
+const setText = (id, value = "") => { const el = document.getElementById(id); if (el) el.textContent = value; };
 
 const spriteFrom = (data) =>
   data.sprites?.other?.["official-artwork"]?.front_default ||
-  data.sprites?.front_default ||
-  "";
+  data.sprites?.front_default || "";
 
 const cache = new Map();
 const normalizeQuery = (q) => q.trim().toLowerCase().replace(/[^a-z0-9-]/g, "");
@@ -62,8 +51,7 @@ const render = (data) => {
   setText("weight", `${data.weight ?? ""}`);
   setText("height", `${data.height ?? ""}`);
 
-  const getStat = (name) =>
-    data.stats?.find((s) => s.stat?.name === name)?.base_stat ?? "";
+  const getStat = (name) => data.stats?.find((s) => s.stat?.name === name)?.base_stat ?? "";
 
   setText("hp", `${getStat("hp")}`);
   setText("attack", `${getStat("attack")}`);
@@ -80,15 +68,12 @@ const render = (data) => {
   });
 
   const src = spriteFrom(data);
-  if (src) {
-    imgEl.src = src;
-    imgEl.alt = `${(data.name || "Pokémon")} sprite`;
-  }
+  if (src) { imgEl.src = src; imgEl.alt = `${(data.name || "Pokémon")} sprite`; }
 
   resultEl.hidden = false;
 };
 
-// Search
+// Submit/search
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const q = input.value;
@@ -104,20 +89,16 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-// Keyboard shortcuts
+// Keys: "/" focus, "Esc" clear
 window.addEventListener("keydown", (e) => {
   if (e.key === "/" && document.activeElement !== input) {
-    e.preventDefault();
-    input.focus();
-    input.select();
+    e.preventDefault(); input.focus(); input.select();
   } else if (e.key === "Escape") {
-    input.value = "";
-    clearStatus();
-    resultEl.hidden = true;
+    input.value = ""; clearStatus(); resultEl.hidden = true;
   }
 });
 
-// Dark/light theme toggle
+// Theme toggle
 const applyTheme = (mode) => {
   document.documentElement.classList.toggle("dark", mode === "dark");
   themeBtn.setAttribute("aria-pressed", String(mode === "dark"));
@@ -130,3 +111,4 @@ themeBtn.addEventListener("click", () => {
   const next = document.documentElement.classList.contains("dark") ? "light" : "dark";
   applyTheme(next);
 });
+

@@ -4,14 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pokémon Search App</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=5" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <h1>Pokémon Search</h1>
-      <!-- Dark/Light toggle -->
+      <h1>Pokémon Search <span class="badge">build v5</span></h1>
       <button id="theme-toggle" class="ghost-btn" aria-pressed="false" title="Toggle dark mode">🌗</button>
     </header>
 
@@ -42,7 +41,7 @@
     </div>
   </div>
 
-  <!-- bump version so Pages fetches the new JS -->
-  <script src="script.js?v=4" defer></script>
+  <!-- cache-bust -->
+  <script src="script.js?v=5" defer></script>
 </body>
 </html>
