@@ -5,6 +5,13 @@ A simple, responsive web app to search and view details of any Pokémon using th
 🌐 **Live Demo:** [coolharry1976.github.io/pokemon-search](https://coolharry1976.github.io/pokemon-search/)
 
 ---
+## 📸 Preview
+**Dark Mode**
+<img width="1203" height="822" alt="Image" src="https://github.com/user-attachments/assets/a817cfa6-411b-4d08-a928-b0cd1739c6c9" />
+**Light Mode**
+<img width="1199" height="814" alt="Image" src="https://github.com/user-attachments/assets/422699ab-5235-442f-a8fc-5d3cce36f8a9" />
+
+---
 
 ## ✨ Features
 - 🔍 Search Pokémon by name or Pokédex ID  
